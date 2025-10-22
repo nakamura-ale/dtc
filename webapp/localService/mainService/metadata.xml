@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZDTC_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="zbrv_036" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ZTPINT"/>
+                    <PropertyRef Name="ZBATCH"/>
+                </Key>
+                <Property Name="ZTPINT" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo de Interface" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ZBATCH" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Lote" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ZMSG" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Mensagem" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="toZbrv_037" Relationship="ZDTC_SRV.toZbrv_037" FromRole="FromRole_toZbrv_037" ToRole="ToRole_toZbrv_037"/>
+            </EntityType>
+            <EntityType Name="zbrv_037" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ZTPINT"/>
+                    <PropertyRef Name="ZBATCH"/>
+                    <PropertyRef Name="ZPARAMETRO"/>
+                </Key>
+                <Property Name="ZTPINT" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo de Interface" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZBATCH" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Lote" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZPARAMETRO" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Parametros" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZFIELD" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Campo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZVALOR" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Valores" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="toZbrv_037" sap:content-version="1">
+                <End Type="ZDTC_SRV.zbrv_036" Multiplicity="1" Role="FromRole_toZbrv_037"/>
+                <End Type="ZDTC_SRV.zbrv_037" Multiplicity="*" Role="ToRole_toZbrv_037"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_toZbrv_037">
+                        <PropertyRef Name="ZBATCH"/>
+                        <PropertyRef Name="ZTPINT"/>
+                    </Principal>
+                    <Dependent Role="ToRole_toZbrv_037">
+                        <PropertyRef Name="ZBATCH"/>
+                        <PropertyRef Name="ZTPINT"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZDTC_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="zbrv_036S" EntityType="ZDTC_SRV.zbrv_036" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="zbrv_037S" EntityType="ZDTC_SRV.zbrv_037" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="toZbrv_037Set" Association="ZDTC_SRV.toZbrv_037" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zbrv_036S" Role="FromRole_toZbrv_037"/>
+                    <End EntitySet="zbrv_037S" Role="ToRole_toZbrv_037"/>
+                </AssociationSet>
+                <FunctionImport Name="Reprocessar" ReturnType="Collection(ZDTC_SRV.zbrv_036)" EntitySet="zbrv_036S" m:HttpMethod="POST"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://vhcalnplci:8000/sap/opu/odata/sap/ZDTC_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://vhcalnplci:8000/sap/opu/odata/sap/ZDTC_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

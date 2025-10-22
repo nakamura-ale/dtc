@@ -1,0 +1,103 @@
+<mvc:View
+    controllerName="project11.controller.View1"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table"
+    xmlns:ra="sap.ui.table.rowmodes"
+    xmlns:fb="sap.ui.comp.filterbar"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <fb:FilterBar
+                    id="filterBar1"
+                    search=".onSearch"
+                    showGoButton="true"
+                >
+                    <fb:filterItems>
+                        <fb:FilterItem
+                            name="ZTPINT"
+                            label="{i18n>ZTPINT}"
+                        >
+                            <fb:control>
+                                <Input id="inpZTPINT" />
+                            </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem
+                            name="ZBATCH"
+                            label="{i18n>ZBATCH}"
+                        >
+                            <fb:control>
+                                <Input id="inpZBATCH" />
+                            </fb:control>
+                        </fb:FilterItem>
+                    </fb:filterItems>
+                </fb:FilterBar>
+                <t:Table
+                    id="tblMain"
+                    rows="{local>/items}"
+                    selectionMode="MultiToggle"
+                    enableColumnReordering="true"
+                    enableSelectAll="true"
+                    visibleRowCount="10"
+                    class="sapUiSizeCompact"
+                    rowActionCount="1"
+                >
+                    <t:toolbar>
+                        <Toolbar>
+                            <Title text="Lotes" />
+                            <ToolbarSpacer />
+                            <Button
+                                icon="sap-icon://refresh"
+                                text="Reprocessar"
+                                press=".onReprocessar"
+                            />
+                        </Toolbar>
+                    </t:toolbar>
+
+                    <t:columns>
+                        <t:Column
+                            label="{i18n>ZTPINT}"
+                            width="100px"
+                        >
+                            <t:template>
+                                <Text text="{local>ZTPINT}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            label="{i18n>ZBATCH}"
+                            width="150px"
+                        >
+                            <t:template>
+                                <Text text="{local>ZBATCH}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            label="{i18n>ZMSG}"
+                            width="300px"
+                        >
+                            <t:template>
+                                <Text text="{local>ZMSG}" />
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+
+                    <t:rowActionTemplate>
+                        <t:RowAction>
+                            <t:RowActionItem
+                                icon="sap-icon://navigation-right-arrow"
+                                text="Detalhes"
+                                press=".onRowActionPress"
+                            />
+                        </t:RowAction>
+                    </t:rowActionTemplate>
+                </t:Table>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
