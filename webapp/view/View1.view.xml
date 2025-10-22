@@ -61,19 +61,27 @@
                     </t:toolbar>
 
                     <t:columns>
-                        <t:Column
+                        <t:Column id="_IDGenColumn"
                             sortProperty="ZTPINT"
                             filterProperty="ZTPINT"
                             showFilterMenuEntry="true"
                             showSortMenuEntry="true"
                             label="{i18n>ZTPINT}"
-                            width="100px"
+                            width="200px"
                         >
                             <t:template>
-                                <Text text="{local>ZTPINT}" />
+                                <HBox id="_IDGenHBox" justifyContent="SpaceBetween">
+                                    <Text id="_IDGenText" text="{local>ZTPINT}" />
+                                    <core:Icon id="_IDGenIcon"
+                                        src="sap-icon://error"
+                                        color="Negative"
+                                        visible="{= parseInt(${local>ZBATCH}) > 1000000000 }"
+                                        tooltip="ZTPINT maior que 10!"
+                                    />
+                                </HBox>
                             </t:template>
                         </t:Column>
-                        <t:Column
+                        <t:Column id="_IDGenColumn1"
                             sortProperty="ZBATCH"
                             filterProperty="ZBATCH"
                             showFilterMenuEntry="true"
@@ -85,7 +93,7 @@
                                 <Text text="{local>ZBATCH}" />
                             </t:template>
                         </t:Column>
-                        <t:Column
+                        <t:Column id="_IDGenColumn2"
                             sortProperty="ZMSG"
                             filterProperty="ZMSG"
                             showFilterMenuEntry="true"
@@ -100,8 +108,8 @@
                     </t:columns>
 
                     <t:rowActionTemplate>
-                        <t:RowAction>
-                            <t:RowActionItem
+                        <t:RowAction id="_IDGenRowAction">
+                            <t:RowActionItem id="_IDGenRowActionItem"
                                 icon="sap-icon://navigation-right-arrow"
                                 text="Detalhes"
                                 press=".onRowActionPress"

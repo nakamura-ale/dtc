@@ -3,39 +3,78 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
-    xmlns:t="sap.ui.table">
-    
-    <Page title="Detalhes do Lote" showNavButton="true" navButtonPress=".onNavBack">
+    xmlns:t="sap.ui.table"
+>
+    <Page
+        title="Detalhes do Lote"
+        showNavButton="true"
+        navButtonPress=".onNavBack"
+    >
         <content>
             <t:Table
                 id="tblDetail"
                 rows="{detail>/items}"
-                selectionMode="None" 
+                selectionMode="None"
                 enableColumnReordering="true"
-                class="sapUiSizeCompact">
-                
+                class="sapUiSizeCompact"
+            >
                 <t:columns>
-                    <t:Column label="{i18n>ZTPINT}" width="100px">
+                    <t:Column
+                        sortProperty="ZTPINT"
+                        filterProperty="ZTPINT"
+                        showFilterMenuEntry="true"
+                        showSortMenuEntry="true"
+                        label="{i18n>ZTPINT}"
+                        width="100px"
+                    >
                         <t:template>
                             <Text text="{detail>ZTPINT}" />
                         </t:template>
                     </t:Column>
-                    <t:Column label="{i18n>ZBATCH}" width="150px">
+                    <t:Column
+                        sortProperty="ZBATCH"
+                        filterProperty="ZBATCH"
+                        showFilterMenuEntry="true"
+                        showSortMenuEntry="true"
+                        label="{i18n>ZBATCH}"
+                        width="150px"
+                    >
                         <t:template>
                             <Text text="{detail>ZBATCH}" />
                         </t:template>
                     </t:Column>
-                    <t:Column label="{i18n>ZPARAMETRO}" width="200px">
+                    <t:Column
+                        sortProperty="ZPARAMETRO"
+                        filterProperty="ZPARAMETRO"
+                        showFilterMenuEntry="true"
+                        showSortMenuEntry="true"
+                        label="{i18n>ZPARAMETRO}"
+                        width="200px"
+                    >
                         <t:template>
                             <Text text="{detail>ZPARAMETRO}" />
                         </t:template>
                     </t:Column>
-                    <t:Column label="{i18n>ZFIELD}" width="200px">
+                    <t:Column
+                        sortProperty="ZFIELD"
+                        filterProperty="ZFIELD"
+                        showFilterMenuEntry="true"
+                        showSortMenuEntry="true"
+                        label="{i18n>ZFIELD}"
+                        width="200px"
+                    >
                         <t:template>
                             <Text text="{detail>ZFIELD}" />
                         </t:template>
                     </t:Column>
-                    <t:Column label="{i18n>ZVALOR}" width="200px">
+                    <t:Column
+                        sortProperty="ZVALOR"
+                        filterProperty="ZVALOR"
+                        showFilterMenuEntry="true"
+                        showSortMenuEntry="true"
+                        label="{i18n>ZVALOR}"
+                        width="200px"
+                    >
                         <t:template>
                             <Text text="{detail>ZVALOR}" />
                         </t:template>
@@ -45,4 +84,3 @@
         </content>
     </Page>
 </mvc:View>
-
