@@ -48,17 +48,17 @@
                     class="sapUiSizeCompact"
                     rowActionCount="1"
                 >
-                    <t:toolbar>
-                        <Toolbar>
-                            <Title text="Lotes" />
-                            <ToolbarSpacer />
-                            <Button
+                    <t:extension>
+                        <Toolbar id="_IDGenToolbar">
+                            <Title id="_IDGenTitle" text="Lotes" />
+                            <ToolbarSpacer id="_IDGenToolbarSpacer" />
+                            <Button id="_IDGenButton"
                                 icon="sap-icon://refresh"
                                 text="Reprocessar"
                                 press=".onReprocessar"
                             />
                         </Toolbar>
-                    </t:toolbar>
+                    </t:extension>
 
                     <t:columns>
                         <t:Column id="_IDGenColumn"
@@ -102,7 +102,7 @@
                             width="300px"
                         >
                             <t:template>
-                                <Text text="{local>ZMSG}" />
+                                <Text id="_IDGenText1" text="{local>ZMSG}" />
                             </t:template>
                         </t:Column>
                     </t:columns>
